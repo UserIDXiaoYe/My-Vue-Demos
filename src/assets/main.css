@@ -1,1 +1,10 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+
+/* 调整这两个导入的顺序可以控制样式优先级 */
+/* @import "normalize.css/normalize.css" layer(base); */
+@import "tailwindcss/preflight.css" layer(base);
+
+@import "tailwindcss/utilities.css" layer(utilities);

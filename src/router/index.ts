@@ -12,6 +12,26 @@ const router = createRouter({
       path:"/basic-1",
       name: "HelloWorld",
       component: () => import("../components/Basic/HelloWorld.vue"),
+    },
+    {
+      name: "Handling User Input", 
+      path: "/basic-2",
+      component: () => import("../components/Basic/HandlingUserInput.vue")
+    },
+    {
+      name: "Attribute Bindings", 
+      path: "/basic-3",
+      component: () => import("../components/Basic/AttributeBindings.vue")
+    },
+    {
+      name: "Conditionals and Loops", 
+      path: "/basic-4",
+      component: () => import("../components/Basic/ConditionalsLoops.vue")
+    },
+    {
+      name: "Form Bindings", 
+      path: "/basic-5",
+      component: () => import("../components/Basic/FormBindings.vue")
     }
   ],
 })
