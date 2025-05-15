@@ -32,6 +32,11 @@ const router = createRouter({
       name: "Form Bindings", 
       path: "/basic-5",
       component: () => import("../components/Basic/FormBindings.vue")
+    },
+    {
+      name: "Simple Component", 
+      path: "/basic-6",
+      component: () => import("../components/Basic/SimpleComponent.vue")
     }
   ],
 })

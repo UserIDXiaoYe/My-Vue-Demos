@@ -31,34 +31,36 @@ function resetMessage(){
 
 <template>
 
-  <Strong class="mes">{{ message }}</Strong>
+<div class="flex flex-col gap-3">
+    <div class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl cursor-pointer hover:scale-125 transition-all duration-500 ease-in-out hover:text-[#79ddea]">{{ message }}</div>
 
   <!--
     绑定到一个方法/函数。
     这个 @click 语法是 v-on:click 的简写。
   -->
-  <Button @click="reverseMessage">Reverse Message</Button>
+  <div class="flex justify-center gap-3 items-end">
+      <Button @click="reverseMessage">Reverse Message</Button>
 
-  <!-- 也可以写成一个内联表达式语句 -->
-  <Button @click="message += '!'">Append "!"</Button>
-  <Button @click="resetMessage">Reset</Button>
-
-  <!--
-    Vue 也为一些像 e.preventDefault() 和 e.stopPropagation()
-    这样的常见任务提供了修饰符。
-  -->
-  <a href="https://vuejs.org" @click.prevent="notify" class="link-a">
-    A link with e.preventDefault()
-  </a>
-  <CustomAlert ref="customAlert" />
+      <!-- 也可以写成一个内联表达式语句 -->
+      <Button @click="message += '!'">Append "!"</Button>
+      <Button @click="resetMessage">Reset</Button>
+        <!--
+        Vue 也为一些像 e.preventDefault() 和 e.stopPropagation()
+        这样的常见任务提供了修饰符。
+      -->
+      <a href="https://vuejs.org" @click.prevent="notify" class="link-a underline">
+        A link with e.preventDefault()
+      </a>
+      <CustomAlert ref="customAlert" />
+  </div>
+</div>
 </template>
 
 <style scoped>
-button, a {
-  display: block;
-  margin-bottom: 1em;
-}
-.mes{
-    font-size: 24px;
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 </style>

@@ -4,7 +4,9 @@
       <aside><Sidebar/></aside>
       <article class="right">
         <div class="vue-content">
-          <RouterView/>
+          <Transition name="fade">
+            <RouterView/>
+          </Transition>
         </div>
       </article>
     </div>
@@ -16,6 +18,23 @@ import Sidebar from './components/Sidebar.vue'
 </script>
 
 <style lang="less" scoped>
+/* 定义淡入淡出动画 */
+.fade-enter-active {
+  transition: opacity 0.8s ease;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
+/* 禁用淡出 */
+.fade-leave-active {
+  display: none;
+}
 .all-content {
   min-height: 100vh;
   display: flex;

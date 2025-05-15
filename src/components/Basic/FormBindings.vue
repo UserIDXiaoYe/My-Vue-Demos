@@ -64,6 +64,7 @@ const multiSelected = ref(['A'])
 </script>
 
 <style lang="less" scoped>
+
 .content{
     height: 20rem;
     width: 61rem;
@@ -74,5 +75,11 @@ const multiSelected = ref(['A'])
     justify-content: center;
     gap: 1rem;
     overflow: auto;
+    h2{
+        font-size: 24px;
+    }
+    input{
+        text-decoration-line: underline;
+    }
 }
 </style>
