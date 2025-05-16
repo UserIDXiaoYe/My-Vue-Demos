@@ -19,7 +19,7 @@ function reverseMessage() {
 const customAlert = ref();
 
 const notify = () => {
-  customAlert.value.showAlert('链接跳转被阻止');
+  customAlert.value.showAlert('你点击了一个prevent原生事件的a标签，由于vue的阻止，它并不会跳转到别的网址');
 };
 // function notify() {
 //   alert('navigation was prevented.')
@@ -57,10 +57,5 @@ function resetMessage(){
 </template>
 
 <style scoped>
-.buttons{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
+
 </style>

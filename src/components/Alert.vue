@@ -1,14 +1,17 @@
 <template>
-  <div class="custom-alert" v-show="isVisible">
-    <div class="alert-content">
+  <div class="fixed bottom-4 right-4  z-[1000] bg-gray-100 rounded-md shadow-md p-5 border-solid border-gray-200 border-2   w-[35%]  transition-all duration-300 ease-out
+  transform hover:scale-105
+  animate-[slide-up_0.3s_ease-out]" v-show="isVisible">
+    <div class="flex justify-center align-center gap-2 flex-col">
       <p class="alert-message">{{ message }}</p>
-      <button class="alert-button" @click="closeAlert">确定</button>
+      <Button @click="closeAlert" class="inline-block">确定</Button>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import Button from './Button.vue';
 
 // 控制弹窗的显示与隐藏
 const isVisible = ref(false);
@@ -34,26 +37,6 @@ defineExpose({
 </script>
 
 <style scoped>
-.custom-alert {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.alert-content {
-  text-align: center;
-}
-
-.alert-message {
-  margin-bottom: 10px;
-}
-
 .alert-button {
   background-color: #007bff;
   color: white;

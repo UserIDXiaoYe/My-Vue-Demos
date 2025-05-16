@@ -1,85 +1,95 @@
 <template>
-    <div class="content">
-        <div class="input">
-            <h2>Text Input</h2>
-            <input v-model="text">
-            <p>{{ text }}</p>
-        </div>
-        <div class="checkbox">
-            <h2>Checkbox</h2>
-            <input type="checkbox" id="checkbox" v-model="checked">
-            <label for="checkbox">Checked: {{ checked }}</label>
-            
-        </div>
-        <div class="checkboxes">
-            <h2>Multi Checkbox</h2>
-            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-            <label for="jack">Jack</label>
-            <input type="checkbox" id="john" value="John" v-model="checkedNames">
-            <label for="john">John</label>
-            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-            <label for="mike">Mike</label>
-            <p>Checked names: {{ checkedNames }}</p>
-        </div>
-        <div class="radio">
-            <h2>Radio</h2>
-            <input type="radio" id="one" value="One" v-model="picked">
-            <label for="one">One</label>
-            <br>
-            <input type="radio" id="two" value="Two" v-model="picked">
-            <label for="two">Two</label>
-            <p>Picked: {{ picked }}</p>
-        </div>
-        <div class="select">
-            <h2>Select</h2>
-            <select v-model="selected">
-            <option disabled value="">Please select one</option>
-            <option>A</option>
-            <option>B</option>
-            <option>C</option>
-            </select>
-            <p>Selected: {{ selected }}</p>
+  <div class="flex h-screen bg-gray-50 p-6">
+    <!-- 左侧表单区域 (2/3宽度) -->
+    <div class="w-2/3 pr-4">
+      <div class="h-full bg-white border-2 border-gray-200 rounded-lg p-6 flex flex-col">
+        <!-- 标题部分靠左对齐 -->
+        <div class="text-left mb-6">
+          <h1 class="text-3xl font-bold">Payment Method</h1>
+          <p class="text-gray-600 mt-1">Add a new payment method to your account.</p>
         </div>
 
-        <div class="multy-select">
-            <h2>Multi Select</h2>
-            <select v-model="multiSelected" multiple style="width:100px">
-            <option>A</option>
-            <option>B</option>
-            <option>C</option>
-            </select>
-            <p>Selected: {{ multiSelected }}</p>
+        <!-- 支付方式选项 -->
+        <div class="flex gap-4 mb-6">
+          <div 
+            v-for="n in 3" 
+            :key="n"
+            class="w-44 h-28 bg-red-100 rounded cursor-pointer"
+          ></div>
         </div>
+
+        <!-- 表单区域 (全部靠左对齐) -->
+        <div class="space-y-6 flex-1">
+          <!-- 姓名输入 -->
+        <div class="text-left">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+        <input 
+            type="text" 
+            class="w-full max-w-md px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+        </div>
+
+        <!-- 卡号和复选框 -->
+        <div class="flex gap-4 items-start">
+        <div class="text-left flex-1">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+            <input 
+            type="text" 
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+        </div>
+        <div class="text-left flex items-center gap-2 mt-6">
+            <input type="checkbox" class="h-4 w-4">
+            <label class="text-sm font-medium text-gray-700">Card CheckNum</label>
+        </div>
+        </div>
+
+        <!-- 日期和CVV -->
+        <div class="flex gap-4">
+        <div class="text-left">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Expires</label>
+            <select class="w-32 px-3 py-2 border border-gray-300 rounded-md">
+            <option>Month</option>
+            </select>
+        </div>
+        <div class="text-left">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Year</label>
+            <select class="w-32 px-3 py-2 border border-gray-300 rounded-md">
+            <option>Year</option>
+            </select>
+        </div>
+        <div class="text-left">
+            <label class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+            <input 
+            type="text" 
+            class="w-32 px-3 py-2 border border-gray-300 rounded-md"
+            >
+        </div>
+        </div>   
+        </div>
+        <Button>Continue</Button> 
+      </div>
     </div>
-</template>
-<script setup>
-import { ref } from 'vue';
 
-const text = ref('Input something')
-const checked = ref(true)
-const checkedNames = ref(['Jack'])
-const picked = ref('one')
-const selected = ref('A')
-const multiSelected = ref(['A'])
+    <!-- 右侧信息区域 (1/3宽度) -->
+    <div class="w-1/3 pl-4">
+      <div class="h-full bg-amber-100 border-2 border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center">
+        <h2 class="text-3xl font-bold mb-4">Information</h2>
+        <div class="w-full bg-white p-4 rounded">
+          <!-- 这里可以显示表单数据 -->
+          <p class="text-gray-700">Form data will appear here</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import Button from '../Button.vue';
+
+
 </script>
 
-<style lang="less" scoped>
+<style scoped>
 
-.content{
-    height: 20rem;
-    width: 61rem;
-    padding-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    overflow: auto;
-    h2{
-        font-size: 24px;
-    }
-    input{
-        text-decoration-line: underline;
-    }
-}
 </style>

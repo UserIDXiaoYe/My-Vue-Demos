@@ -1,7 +1,7 @@
 <template>
   <button
     :class="[
-      'px-4 py-2 rounded transition-colors duration-200',
+      'px-4 py-2 rounded transition-colors duration-200 cursor-pointer',
       isActive ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800',
       className
     ]"
