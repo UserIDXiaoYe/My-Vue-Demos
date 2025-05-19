@@ -37,6 +37,41 @@ const router = createRouter({
       name: "Simple Component", 
       path: "/basic-6",
       component: () => import("../components/Basic/SimpleComponent.vue")
+    },
+    {
+      name: "Markdown Editor", 
+      path: "/practical-1",
+      component: () => import("../components/Practical/MarkdownEditor.vue")
+    },
+    {
+      name: "Fetching Data", 
+      path: "/practical-2",
+      component: () => import("../components/Practical/FetchingData.vue")
+    },
+    {
+      name: "Grid with Sort and Filter",
+      path: "/practical-3",
+      component: () => import("../components/Practical/GridSortFilter.vue")
+    },
+    {
+      name: "Tree View", 
+      path: "/practical-4",
+      component: () => import("../components/Practical/TreeView.vue")
+    },
+    {
+      name: "SVG Graph", 
+      path: "/practical-5",
+      component: () => import("../components/Practical/SVGGraph.vue")
+    },
+    {
+      name: "Modal with Transitions", 
+      path: "/practical-6",
+      component: () => import("../components/Practical/ModalTransitions.vue")
+    },
+    {
+      name: "TodoMVC", 
+      path: "/practical-8",
+      component: () => import("../components/Practical/TodoMVC.vue")
     }
   ],
 })

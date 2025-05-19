@@ -1,31 +1,33 @@
-<!--
-这里展示了最简单的组件，它接收一个 prop 并渲染出来。
-在指南页面了解更多关于组件的内容！
--->
+<template>
+  <div
+    class="flex justify-center flex-col items-center h-[100%] w-[100%] relative"
+  >
+    <h2 class="text-6xl mb-4 font-bold">This is Father Component</h2>
+    <div class="flex flex-col">
+      <TodoItem v-for="item of groceryList" :todo="item" :key="item.id" />
+    </div>
+    <div
+      class="text-3xl font-semibold absolute right-28 bottom-12 hover:scale-110 transition-all cursor-pointer hover:underline"
+    >
+      Count: {{ groceryList.length }}
+    </div>
+  </div>
+</template>
 
-<script setup>
-import { ref } from 'vue'
-import TodoItem from './TodoItem.vue'
+<script setup lang="ts">
+import { ref } from "vue";
+import TodoItem from "./TodoItem.vue";
 
-const groceryList = ref([
-  { id: 0, text: 'Vegetables' },
-  { id: 1, text: 'Cheese' },
-  { id: 2, text: 'Whatever else humans are supposed to eat' }
-])
+interface Todo {
+  id: number;
+  text: string;
+}
+
+const groceryList = ref<Todo[]>([
+  { id: 0, text: "Vegetables" },
+  { id: 1, text: "Cheese" },
+  { id: 2, text: "Whatever else humans are supposed to eat" },
+]);
 </script>
 
-<template>
-  <ol>
-    <!--
-      我们给每个 todo 项提供它所表示的 todo 对象，
-      以便能够动态展示内容。
-      同时还需要给每个组件提供一个“key”，
-      这在指南的 v-for 部分有详细解释。
-    -->
-    <TodoItem
-      v-for="item in groceryList"
-      :todo="item"
-      :key="item.id"
-    ></TodoItem>
-  </ol>
-</template>
+<style scoped></style>
